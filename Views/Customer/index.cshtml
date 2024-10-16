@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebApplication1.Models.CustomerModel>  
+
+<div>
+    <div class="pb-2">
+        <form asp-controller="Customer" asp-action="Create" method="post">
+            <button type="submit" class="btn btn-success">เพิ่มข้อมูลลูกค้า</button>
+        </form>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>รหัสลูกค้า</th>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+                <th>ที่อยู่</th>
+                <th>วันเกิด</th>
+                <th>เพศ</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>@Html.DisplayFor(t => item.cus_id)</td>
+                        <td>@Html.DisplayFor(t => item.cus_name)</td>
+                        <td>@Html.DisplayFor(t => item.cus_lname)</td>
+                        <td>@Html.DisplayFor(t => item.cus_add)</td>
+                        <td>@Html.DisplayFor(t => item.bdate)</td>
+                        <td>@Html.DisplayFor(t => item.sex)</td>
+                        <td>@Html.DisplayFor(t => item.username)</td>
+                        <td>@Html.DisplayFor(t => item.password)</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.cus_id }, new { @class = "btn btn-primary btn-sm" })  |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.cus_id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('ต้องการลบหรือไม่?');" })|
+                            @Html.ActionLink("Detail", "Detail", new { id = item.cus_id }, new { @class = "btn btn-info btn-sm" })
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,76 @@
+﻿@model WebApplication1.Models.CustomerModel
+@section Scripts {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: '@TempData["SuccessMessage"]'
+                        });
+            </text>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: '@TempData["ErrorMessage"]'
+                        });
+            </text>
+        }
+        </script>
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create" class="border p-4 shadow-sm rounded">
+                <div class="form-group">
+                    <label for="cus_name" class="form-label">ชื่อ</label>
+                    <input asp-for="cus_name" class="form-control" id="cus_name" type="name" placeholder="กรุณากรอกชื่อ" require/>
+                    <br/>
+                    <label for="cus_lname" class="form-label">นามสกุล</label>
+                    <input asp-for="cus_lname" class="form-control" id="cus_lname" type="name" placeholder="กรุณากรอกนามสกุล" require/>
+                    <br/>
+                    <label for="cus_add" class="form-label">ที่อยู่</label>
+                    <input asp-for="cus_add" class="form-control" id="cus_add" type="name" placeholder="กรุณากรอกที่อยู่" require/>
+                    <br/>
+                    <label asp-for="bdate" for="bdate" class="form-label">วันเกิด</label>
+                    <input class="form-control" asp-for="bdate" type="date" required />
+                    <br/>
+                    <label for="tel" class="form-label">เบอร์โทร</label>
+                    <input asp-for="cus_tel" class="form-control" type="name" id="cus_tel" placeholder="กรุณากรอกเบอร์โทร" require/>
+                    <br/>
+                    <label for="sex" class="form-label">เพศ</label>
+                        <select asp-for="sex" class="form-control" id="sex" required>
+                            <option value="" disabled selected>กรุณาเลือกเพศ</option>
+                            <option value="male">ชาย</option>
+                            <option value="female">หญิง</option>
+                        </select>
+                    <br />
+                    <label for="username" class="form-label">Username</label>
+                    <input asp-for="username" class="form-control" id="username" type="name" placeholder="กรุณากรอก Username" require/>
+                    <br/>
+                    <label for="password" class="form-label">password</label>
+                    <input asp-for="password" class="form-control" id="password" type="password" placeholder="กรุณากรอก password" require/>
+                    <br/>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Create" class="btn btn-success btn-block" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

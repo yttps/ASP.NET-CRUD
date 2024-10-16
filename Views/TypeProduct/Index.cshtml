@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.TypeProduct>  //get TypeProduct from model json to str to display
+
+<div>
+    <div class="pb-2">
+        <form asp-controller="TypeProduct" asp-action="Create" method="post">
+            <button type="submit" class="btn btn-success">Create Type Product</button>
+        </form>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>รหัสประเภทสินค้า</th>
+                <th>ชื่อประเภทสินค้า</th>
+                <th>ลิงค์</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(t => item.type_id)</td>
+                    <td>@Html.DisplayFor(t => item.type_name)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.type_id }, new { @class = "btn btn-primary btn-sm" })  |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.type_id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('ต้องการลบหรือไม่?');" })|
+                        @Html.ActionLink("Detail", "Detail", new { id = item.type_id }, new { @class = "btn btn-info btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

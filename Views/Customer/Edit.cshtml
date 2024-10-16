@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.CustomerModel //get str in textfield
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit" class="border p-4 shadow-sm rounded">
+                <div class="form-group">
+                    <label for="type_name" class="form-label">ชื่อ</label>
+                    <input asp-for="cus_name" class="form-control" id="cus_name" type="name" placeholder="กรุณากรอกชื่อที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="type_name" class="form-label">นามสกุล</label>
+                    <input asp-for="cus_lname" class="form-control" id="cus_lname" type="name" placeholder="กรุณากรอกนามสกุลที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="type_name" class="form-label">ที่อยู่</label>
+                    <input asp-for="cus_add" class="form-control" id="cus_add" type="name" placeholder="กรุณากรอกที่อยู่ที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="type_name" class="form-label">เบอร์โทร</label>
+                    <input asp-for="cus_tel" class="form-control" id="cus_tel" type="name" placeholder="กรุณากรอกเบอร์โทรที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="type_name" class="form-label">วันเกิด</label>
+                    <input asp-for="bdate" class="form-control" id="bdate" type="date" placeholder="กรุณากรอกวันเกิดที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="sex" class="form-label">เพศ</label>
+                        <select asp-for="sex" class="form-control" id="sex" required>
+                            <option value="" disabled selected>กรุณาเลือกเพศ</option>
+                            <option value="male">ชาย</option>
+                            <option value="female">หญิง</option>
+                        </select>
+                    <br />
+                    <label for="type_name" class="form-label">Username</label>
+                    <input asp-for="username" class="form-control" id="username" type="name" placeholder="กรุณากรอก Username ที่ต้องการแก้ไข" />
+                    <br/>
+                    <label for="type_name" class="form-label">Password</label>
+                    <input asp-for="password" class="form-control" id="password" type="name" placeholder="กรุณากรอก Password ที่ต้องการแก้ไข" />
+                    <br/>
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index" class="btn btn-primary btn-block">กลับไปยังหน้าแรก</a>
+                    <input type="submit" value="แก้ไขข้อมูล" class="btn btn-success btn-block"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
